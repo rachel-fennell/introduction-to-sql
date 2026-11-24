@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:18
+    command: ["postgres", "-c", "timezone=Europe/London"]
+    environment:
+      POSTGRES_USER: scheduler
+      POSTGRES_PASSWORD: scheduler-local-only
+      POSTGRES_DB: scheduler
+    ports:
+      - "${DB_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ./sql:/sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scheduler -d scheduler"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  pgdata:

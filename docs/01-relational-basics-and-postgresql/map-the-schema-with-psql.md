@@ -7,6 +7,9 @@ Use \dt and \d on each table to list its columns, primary key, foreign keys, uni
 1. What you did, in order, linking to the files you created or changed.
 
 ## Commands
+docker compose up -d --wait
+docker compose exec db psql -U scheduler -d scheduler -v ON_ERROR_STOP=1 -f /sql/seed.sql
+docker compose exec db psql -U scheduler -d scheduler
 scheduler=# \dt
 scheduler=# \d
 

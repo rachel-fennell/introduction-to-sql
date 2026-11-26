@@ -6,8 +6,7 @@ Write one query that lists every volunteer id with attended, no-show and cancell
 ## Steps taken
 1. Grouped bookings by volunteer_id and used aggregate FILTER clauses to count attended, no-show and cancelled bookings for each volunteer
 2. Used HAVING to keep only volunteers with at least one no-show or cancellation
-3. Calculated the past-booking no-show rate as no-show bookings divided by attended plus no-show bookings, multiplied by 100.0 and rounded to one decimal place
-4. Recalculated the rate with booked rows included in the denominator and compared it with the past-booking rate
+3. Calculated the past-booking no-show rate
 
 ## Commands
 
